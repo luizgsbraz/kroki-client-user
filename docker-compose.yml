@@ -32,7 +32,7 @@ services:
       - app-net2
       
   my-client:
-    image: kroki-client
+    image: luizgsbraz/kroki-client:latest
     environment:
       ENV_KROKI_BASE_URL: "http://core:8000"  
     volumes:
