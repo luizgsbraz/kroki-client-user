@@ -6,7 +6,9 @@
 
 ## Timestamp 
 agoramesmo=$(date +%s%3N)
-arquivo_exemplo=exemplo_$agoramesmo.mmd
+arquivo_exemplo_base=exemplo_$agoramesmo
+arquivo_exemplo=$arquivo_exemplo_base.mmd
+
 echo "graph TD" > $LOCAL_SRC_DIR/$arquivo_exemplo
 echo "   X[Entidade X] --> Y[Entidade Y]" >> $LOCAL_SRC_DIR/$arquivo_exemplo
 echo "   Y --> Z[Entidade Z]" >> $LOCAL_SRC_DIR/$arquivo_exemplo
@@ -32,3 +34,5 @@ tree $LOCAL_SRC_DIR
 echo " " 
 echo "Arquivos Gerados:"
 tree $LOCAL_BUILD_DIR
+
+echo "firefox $LOCAL_BUILD_DIR/$arquivo_exemplo_base.svg &"
