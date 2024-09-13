@@ -1,0 +1,18 @@
+ENV_KROKI_BASE_URL=http://core:8000
+CLIENT_BUILD_DIR=/app/work/build
+CLIENT_LOG_DIR=/app/work/log
+CLIENT_MERMAID_URL=http://core:8000/mermaid/svg
+CLIENT_SRC_DIR=/app/work/src
+Source Directory: /app/work/src
+Build Directory: /app/work/build
+Log Directory: /app/work/log
+Mermaid URL: http://core:8000/mermaid/svg
+curl -X POST -o /app/work/build/exemplo_1726264431852.svg -T /app/work/src/exemplo_1726264431852.mmd http://core:8000/mermaid/svg
+  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0100  7839  100  7761  100    78  18609    187 --:--:-- --:--:-- --:--:-- 18798100  7839  100  7761  100    78  18600    186 --:--:-- --:--:-- --:--:-- 18753
+Convertido: /app/work/src/exemplo_1726264431852.mmd -> /app/work/build/exemplo_1726264431852.svg
+tree /app
+
+Processing complete!
+
