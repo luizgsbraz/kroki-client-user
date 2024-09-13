@@ -1,6 +1,6 @@
 # kroki-client-user
 
-Usa a imagem do kroki-client para processar arquivos mermaid.
+Usa a imagem do [kroki-client](https://github.com/luizgsbraz/kroki-client-docker) para processar arquivos mermaid.
 
 ## Requisitos
 
