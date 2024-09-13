@@ -29,7 +29,7 @@ git clone https://github.com/luizgsbraz/kroki-client-user.git
 
 ## Alterar pastas de trabalho
 
-Edite o arquivo inituser 
+Edite o arquivo [inituser](inituser)  
 
 ```
 # uncomment to have custom variables
