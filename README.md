@@ -1,6 +1,6 @@
 # kroki-client-user
 
-Usa a imagem do kroki-client guardada no docker hub para processar arquivos mermaid.
+Usa a imagem do [kroki-client](https://github.com/luizgsbraz/kroki-client-docker) para processar arquivos mermaid.
 
 ## Requisitos
 
@@ -29,7 +29,7 @@ git clone https://github.com/luizgsbraz/kroki-client-user.git
 
 ## Alterar pastas de trabalho
 
-Edite o arquivo inituser 
+Edite o arquivo [inituser](inituser)  
 
 ```
 # uncomment to have custom variables
