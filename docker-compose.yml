@@ -1,6 +1,6 @@
 services:
   core:
-    image: yuzutech/kroki
+    image: docker.io/yuzutech/kroki
     environment:
       - KROKI_MERMAID_HOST=${ENV_KROKI_MERMAID_HOST:-mermaid}
       - KROKI_BPMN_HOST=${ENV_KROKI_BPMN_HOST:-bpmn}
@@ -11,34 +11,34 @@ services:
       - app-net2
       
   mermaid:
-    image: yuzutech/kroki-mermaid
+    image: docker.io/yuzutech/kroki-mermaid
     ports:
       - "8002"  # Porta interna para o core acessar o mermaid
     networks:
       - app-net2
       
   bpmn:
-    image: yuzutech/kroki-bpmn
+    image: docker.io/yuzutech/kroki-bpmn
     ports:
       - "8003"  # Porta interna para o core acessar o bpmn
     networks:
       - app-net2
       
   excalidraw:
-    image: yuzutech/kroki-excalidraw
+    image: docker.io/yuzutech/kroki-excalidraw
     ports:
       - "8004"  # Porta interna para o core acessar o excalidraw
     networks:
       - app-net2
       
   my-client:
-    image: luizgsbraz/kroki-client:latest
+    image: docker.io/luizgsbraz/kroki-client:latest
     environment:
       ENV_KROKI_BASE_URL: "http://core:8000"  
     volumes:
-      - "${LOCAL_SRC_DIR:-mywork/src}:/app/work/src"
-      - "${LOCAL_BUILD_DIR:-mywork/build}:/app/work/build"
-      - "${LOCAL_LOG_DIR:-mywork/log}:/app/work/log"
+      - "${SRC_DIR:-mywork/src}:/app/work/src:ro,Z"
+      - "${BUILD_DIR:-mywork/build}:/app/work/build:rw,Z"
+      - "${LOG_DIR:-mywork/log}:/app/work/log:rw,Z"
     networks:
       - app-net2
     depends_on:
