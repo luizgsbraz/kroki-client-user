@@ -1,42 +1,44 @@
 # kroki-client-user
 
-Usa a imagem do [kroki-client](https://github.com/luizgsbraz/kroki-client-docker) para processar arquivos mermaid.
+## Objetivo
 
-## Requisitos
+Este projeto pretende automatizar a conversão de [diagramas Mermaid](https://mermaid.js.org/syntax/mindmap.html) em imagens no formato svg.
 
-1. Ter o docker e o docker composer (ou podman)
-1. Ter uma imagem kroki-client instalado
-```bash
-$ docker images | grep kroki-client
-kroki-client                                     latest    9e97a19f8ec9   8 days ago      13.1MB
-```
+## Utilidade
 
-Ou construir a imagem você mesmo a partir dos código fonte (https://github.com/luizgsbraz/kroki-client-docker.git)
+A automatização pode ser usada/integrada como um passo intermediário em processos de geração automática de documentos diversos, notadamente documentos de engenharia de software.
 
-## Instalação
+## Como Usar (Em 3 passos rápidos)
 
-```
-git clone https://github.com/luizgsbraz/kroki-client-user.git
-```
+> REQUISITO: Você vai precisar do docker compose.
 
-## Uso
-
-* crie o diretorio ./mywork/src e copie os diagramas a converter para a pasta e execute o script converte.sh
+1. Faça download do [projeto](https://github.com/luizgsbraz/kroki-client-user/archive/refs/heads/main.zip);
+2. Descompacte o arquivo `kroki-client-user-main.zip` e veja o que você tem:
 
 ```bash
-mkdir -p mywork/src
-cp MEU_DIAGRAMA.mmd ./mywork/src
-. converte.sh
+cd $HOME/Downloads
+unzip kroki-client-user-main.zip
+ls -la  $HOME/Downloads/kroki-client-user-main
 ```
 
-## Alterar pastas de trabalho
+3. Execute os comandos abaixo:
 
-Edite as linhas abaixo no arquivo [converte.sh](converte.sh)  
-
+```bash
+cd $HOME/Downloads/kroki-client-user-main
+. converte.sh; 
 ```
-workdir=$(pwd)/mywork 
 
-export SRC_DIR="$workdir/src"
-export BUILD_DIR="$workdir/build"
-export LOG_DIR="$workdir/log"
+Serão criados vários containers para fazer o processamento. Aguarde pela Mensagem de Conclusão.
+
+![terminal](image/README/terminal.png)
+
+## Personalização
+
+Para processar arquivos em outro diretório, abra o arquivo `converte.sh` e edite as linhas abaixo:
+
+```markdown
+# Edite para Personalizar
+export IN_DIR=/MEU_PROJETO_DE_DOCUMENTACAO/diagramas_mermaid/in
+export OUT_DIR=/var/tmp/kroki-client/MEU_PROJETO_DE_DOCUMENTACAO/out
+export LOG_DIR=/var/tmp/kroki-client/MEU_PROJETO_DE_DOCUMENTACAO/log 
 ```

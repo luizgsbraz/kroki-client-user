@@ -36,9 +36,9 @@ services:
     environment:
       ENV_KROKI_BASE_URL: "http://core:8000"  
     volumes:
-      - "${SRC_DIR:-mywork/src}:/app/work/src:ro,Z"
-      - "${BUILD_DIR:-mywork/build}:/app/work/build:rw,Z"
-      - "${LOG_DIR:-mywork/log}:/app/work/log:rw,Z"
+      - "${IN_DIR}:/app/work/src:ro,Z"
+      - "${OUT_DIR}:/app/work/build:rw,Z"
+      - "${LOG_DIR}:/app/work/log:rw,Z"
     networks:
       - app-net2
     depends_on:
