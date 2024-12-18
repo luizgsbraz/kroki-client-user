@@ -1,0 +1,7 @@
+```mermaid
+erDiagram
+    CUSTOMER ||--o{ ORDER : places
+    CUSTOMER }|..|{ DELIVERY-ADDRESS : uses
+    ORDER ||--|{ LINE-ITEM : contains
+    DELIVERY-ADDRESS ||--o{ COUNTRY : is located in
+```
