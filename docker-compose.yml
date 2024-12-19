@@ -32,7 +32,7 @@ services:
       - app-net2
       
   my-client:
-    image: docker.io/luizgsbraz/kroki-client:latest
+    image: docker.io/luizgsbraz/kroki-client:${IMAGE_TAG}
     environment:
       ENV_KROKI_BASE_URL: "http://core:8000"  
     volumes:

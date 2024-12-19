@@ -1,5 +1,22 @@
 #!/bin/bash
 
+export IMAGE_TAG="latest"
+
+usage() {
+    echo "Usage: $0 [-testing]" 1>&2
+    echo "  -testing: Usa a versão testing do kroki-client" 1>&2
+    exit 1
+}
+
+while [[ "$#" -gt 0 ]]; do
+    case $1 in
+        -help) usage ;;
+        -testing) export IMAGE_TAG="testing" ;;
+        *) echo "Unknown parameter passed: $1"; exit 1 ;;
+    esac
+    shift
+done
+
 # Default to $PWD/work
 export baseworkdir=$PWD
 export IN_DIR="$baseworkdir/in"
